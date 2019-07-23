@@ -1,4 +1,7 @@
+'use strict';
+
 const fs = require('fs');
+const chalk = require('chalk');
 const _ = require('lodash');
 
 const moduleTemplate = require('./templates/moduleJS');
@@ -6,6 +9,7 @@ const componentJSTemplate = require('./templates/componentJS');
 const componentHTMLTemplate = require('./templates/componentHTML');
 const mainHTMLTemplate = require('./templates/mainHTML');
 const controllerTemplate = require('./templates/controllerJS');
+const serviceTemplate = require('./templates/serviceJS');
 const componentSASSTemplate = require('./templates/componentSASS');
 
 const childComponentJSTemplate = require('./templates/child-componentJS');
@@ -33,7 +37,7 @@ fs.appendFileSync(`${moduleName}/${moduleName}.component.js`, componentJSTemplat
 fs.appendFileSync(`${moduleName}/${moduleName}.component.scss`, componentSASSTemplate(), function (err) { if (err) throw err });
 
 fs.appendFileSync(`${moduleName}/domains/${moduleName}.dto.js`, '', function (err) { if (err) throw err });
-fs.appendFileSync(`${moduleName}/services/${moduleName}.service.js`, '', function (err) { if (err) throw err });
+fs.appendFileSync(`${moduleName}/services/${moduleName}.service.js`, serviceTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
 
 fs.appendFileSync(`${moduleName}/assets/images/.gitkeep`, '', function (err) { if (err) throw err });
 fs.appendFileSync(`${moduleName}/assets/stylesheets/.gitkeep`, '', function (err) { if (err) throw err });
@@ -42,3 +46,5 @@ fs.appendFileSync(`${moduleName}/templates/.gitkeep`, '', function (err) { if (e
 fs.appendFileSync(`${moduleName}/components/child-component/child-component.component.js`, childComponentJSTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
 fs.appendFileSync(`${moduleName}/components/child-component/child-component.component.html`, childComponentHTMLTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
 fs.appendFileSync(`${moduleName}/components/child-component/_child-component.component.scss`, '', function (err) { if (err) throw err });
+
+console.log(chalk.black.bgCyan('Success:') + chalk.cyan.bgBlack(' ' + moduleNameCamel + 'Module created at folder /' + moduleName + '/'));
