@@ -12,9 +12,6 @@ const controllerTemplate = require('./templates/controllerJS');
 const serviceTemplate = require('./templates/serviceJS');
 const componentSASSTemplate = require('./templates/componentSASS');
 
-const childComponentJSTemplate = require('./templates/child-componentJS');
-const childComponentHTMLTemplate = require('./templates/child-componentHTML');
-
 const args = process.argv.slice(2);
 const moduleName = args[0];
 const moduleNameCamel = _.camelCase(moduleName);
@@ -22,10 +19,10 @@ const moduleNameCamel = _.camelCase(moduleName);
 //CRIANDO PASTAS
 fs.mkdirSync(`./${moduleName}/assets/images`, {recursive: true});
 fs.mkdirSync(`./${moduleName}/assets/stylesheets`, {recursive: true});
-fs.mkdirSync(`./${moduleName}/components/child-component`, {recursive: true});
-fs.mkdirSync(`./${moduleName}/domains`, {recursive: true});
+fs.mkdirSync(`./${moduleName}/components`, {recursive: true});
+fs.mkdirSync(`./${moduleName}/modules`, {recursive: true});
 fs.mkdirSync(`./${moduleName}/services`, {recursive: true});
-fs.mkdirSync(`./${moduleName}/templates`, {recursive: true});
+//fs.mkdirSync(`./${moduleName}/templates`, {recursive: true});
 
 //CRIANDO ARQUIVOS
 fs.appendFileSync(`${moduleName}/README.md`, '', function (err) { if (err) throw err });
@@ -36,15 +33,16 @@ fs.appendFileSync(`${moduleName}/${moduleName}.component.html`, componentHTMLTem
 fs.appendFileSync(`${moduleName}/${moduleName}.component.js`, componentJSTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
 fs.appendFileSync(`${moduleName}/${moduleName}.component.scss`, componentSASSTemplate(), function (err) { if (err) throw err });
 
-fs.appendFileSync(`${moduleName}/domains/${moduleName}.dto.js`, '', function (err) { if (err) throw err });
+//fs.appendFileSync(`${moduleName}/domains/${moduleName}.dto.js`, '', function (err) { if (err) throw err });
 fs.appendFileSync(`${moduleName}/services/${moduleName}.service.js`, serviceTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
 
 fs.appendFileSync(`${moduleName}/assets/images/.gitkeep`, '', function (err) { if (err) throw err });
 fs.appendFileSync(`${moduleName}/assets/stylesheets/.gitkeep`, '', function (err) { if (err) throw err });
-fs.appendFileSync(`${moduleName}/templates/.gitkeep`, '', function (err) { if (err) throw err });
+fs.appendFileSync(`${moduleName}/components/.gitkeep`, '', function (err) { if (err) throw err });
+fs.appendFileSync(`${moduleName}/modules/.gitkeep`, '', function (err) { if (err) throw err });
 
-fs.appendFileSync(`${moduleName}/components/child-component/child-component.component.js`, childComponentJSTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
-fs.appendFileSync(`${moduleName}/components/child-component/child-component.component.html`, childComponentHTMLTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
-fs.appendFileSync(`${moduleName}/components/child-component/_child-component.component.scss`, '', function (err) { if (err) throw err });
+//fs.appendFileSync(`${moduleName}/components/child-component/child-component.component.js`, childComponentJSTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
+//fs.appendFileSync(`${moduleName}/components/child-component/child-component.component.html`, childComponentHTMLTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
+//fs.appendFileSync(`${moduleName}/components/child-component/_child-component.component.scss`, '', function (err) { if (err) throw err });
 
 console.log(chalk.black.bgCyan('Success:') + chalk.cyan.bgBlack(' ' + moduleNameCamel + 'Module created at folder /' + moduleName + '/'));
