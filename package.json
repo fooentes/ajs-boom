@@ -2,7 +2,7 @@
   "name": "ajs-boom",
   "version": "1.0.0",
   "description": "AngularJS CLI to create modules and components",
-  "main": "index.js",
+  "main": "create-module.js",
   "scripts": {
     "create-module": "node create-module"
   },
