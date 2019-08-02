@@ -1,4 +1,4 @@
-module.exports = function (name, nameCamel) {
+module.exports = function (name, nameCamel, PATH) {
   return `
   (function () {
     'use strict';
@@ -7,7 +7,7 @@ module.exports = function (name, nameCamel) {
   
     app.component('${nameCamel}Component', {
       bindings: {},
-      templateUrl: '${name}.component.html',
+      templateUrl: '${PATH}${name}/${name}.component.html',
       controller: ${nameCamel}ComponentController,
       controllerAs: 'vm'
     });
