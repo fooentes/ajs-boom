@@ -1,3 +1,6 @@
+## ajs-boom:
+Easily create AngularJS modules and components
+
 ## Example:
 
 ```bash
