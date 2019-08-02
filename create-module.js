@@ -42,9 +42,9 @@ function criarModulo() {
   fs.mkdirSync(`./${moduleName}/modules`, {recursive: true});
   fs.mkdirSync(`./${moduleName}/services`, {recursive: true});
 
-  fs.appendFileSync(`${moduleName}/README.md`, '', function (err) { if (err) throw err });
-  fs.appendFileSync(`${moduleName}/${moduleNameCamel}.controller.js`, moduleControllerTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
-  fs.appendFileSync(`${moduleName}/${moduleNameCamel}.html`, moduleMainHTMLTemplate(moduleName, moduleNameCamel, componentList), function (err) { if (err) throw err });
+  //fs.appendFileSync(`${moduleName}/README.md`, '', function (err) { if (err) throw err });
+  //fs.appendFileSync(`${moduleName}/${moduleNameCamel}.controller.js`, moduleControllerTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
+  //fs.appendFileSync(`${moduleName}/${moduleName}.html`, moduleMainHTMLTemplate(moduleName), function (err) { if (err) throw err });
   fs.appendFileSync(`${moduleName}/${moduleName}.module.js`, moduleTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
   fs.appendFileSync(`${moduleName}/${moduleName}.component.html`, moduleComponentHTMLTemplate(moduleName, componentList), function (err) { if (err) throw err });
   fs.appendFileSync(`${moduleName}/${moduleName}.component.js`, moduleComponentJSTemplate(moduleName, moduleNameCamel, PATH), function (err) { if (err) throw err });
@@ -52,7 +52,7 @@ function criarModulo() {
   fs.appendFileSync(`${moduleName}/services/${moduleName}.service.js`, moduleServiceTemplate(moduleName, moduleNameCamel), function (err) { if (err) throw err });
   fs.appendFileSync(`${moduleName}/assets/images/.gitkeep`, '', function (err) { if (err) throw err });
   fs.appendFileSync(`${moduleName}/assets/stylesheets/.gitkeep`, '', function (err) { if (err) throw err });
-  fs.appendFileSync(`${moduleName}/files.txt`, log(moduleName, moduleNameCamel, componentList, PATH), function (err) { if (err) throw err });
+  fs.appendFileSync(`${moduleName}/_files.txt`, log(moduleName, moduleNameCamel, componentList, PATH), function (err) { if (err) throw err });
 }
 
 function criarComponentes() {
@@ -65,4 +65,4 @@ function criarComponentes() {
   });
 }
 
-console.log(chalk.black.bgCyan('Success:') + chalk.cyan.bgBlack(' ' + moduleNameCamel + 'Module created at folder /' + moduleName + '/'));
+console.log(chalk.black.bgCyan('Success:') + chalk.cyan.bgBlack(' ' + moduleNameCamel + 'Module successfully created at /' + moduleName + '/'));

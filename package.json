@@ -1,13 +1,13 @@
 {
-  "name": "module-cli",
+  "name": "ajs-boom",
   "version": "1.0.0",
-  "description": "",
+  "description": "AngularJS CLI to create modules and components",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "André Fuentes",
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.4.2",
