@@ -1,3 +1,12 @@
-How to use:
+## Example:
 
-$node create-module --name= --components= --path=
+```bash
+$ node create-module --name=loja-livros --components=lista-livros,livro,carrinho,categorias --path=/app/
+```
+
+## Options:
+|               | Type          | Optional |
+| ------------- |:-------------:| --------:|
+| name          | string        | no       |
+| components    | string        | yes      |
+| path          | string        | yes      |
